@@ -1,0 +1,9 @@
+Removed Pin From Net: NetName=VCC Pin=DC-DC1-3
+Removed Pin From Net: NetName=VCC Pin=DRIVER1-10
+Removed Pin From Net: NetName=VCC Pin=DRIVER2-10
+Removed Pin From Net: NetName=VCC Pin=MCU1-40
+Added Pin To Net: NetName=NetDC-DC1_3 Pin=DC-DC1-3
+Added Pin To Net: NetName=NetDC-DC1_3 Pin=DRIVER1-10
+Added Pin To Net: NetName=NetDC-DC1_3 Pin=DRIVER2-10
+Added Pin To Net: NetName=NetDC-DC1_3 Pin=MCU1-38
+Added Net: Name=NetDC-DC1_3

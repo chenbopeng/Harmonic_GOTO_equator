@@ -1,0 +1,16 @@
+Removed Pin From Net: NetName=NetDRIVER1_11 Pin=RJ1-2
+Removed Pin From Net: NetName=NetDRIVER1_13 Pin=RJ1-3
+Removed Pin From Net: NetName=NetDRIVER1_14 Pin=RJ1-4
+Removed Pin From Net: NetName=NetDRIVER1_12 Pin=RJ1-5
+Removed Pin From Net: NetName=NetDRIVER2_11 Pin=RJ2-2
+Removed Pin From Net: NetName=NetDRIVER2_13 Pin=RJ2-3
+Removed Pin From Net: NetName=NetDRIVER2_14 Pin=RJ2-4
+Removed Pin From Net: NetName=NetDRIVER2_12 Pin=RJ2-5
+Added Pin To Net: NetName=NetDRIVER1_12 Pin=RJ1-2
+Added Pin To Net: NetName=NetDRIVER1_14 Pin=RJ1-3
+Added Pin To Net: NetName=NetDRIVER1_13 Pin=RJ1-4
+Added Pin To Net: NetName=NetDRIVER1_11 Pin=RJ1-5
+Added Pin To Net: NetName=NetDRIVER2_12 Pin=RJ2-2
+Added Pin To Net: NetName=NetDRIVER2_14 Pin=RJ2-3
+Added Pin To Net: NetName=NetDRIVER2_13 Pin=RJ2-4
+Added Pin To Net: NetName=NetDRIVER2_11 Pin=RJ2-5

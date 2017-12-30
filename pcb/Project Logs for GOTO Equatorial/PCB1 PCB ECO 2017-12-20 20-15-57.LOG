@@ -1,0 +1,9 @@
+Added Component: Designator=P?(HDR1X20)
+Added Component: Designator=U1(DIP40)
+Added Component: Designator=U2(DIP16)
+Added Component: Designator=U3(DIP16)
+Added Member To Class: ClassName=核心板 Member=Component P? Header 20
+Added Member To Class: ClassName=核心板 Member=Component U1 STM32C8T6最小系统
+Added Member To Class: ClassName=核心板 Member=Component U2 TMC2100步进电机驱动
+Added Member To Class: ClassName=核心板 Member=Component U3 TMC2100步进电机驱动
+Added Room: Name=核心板

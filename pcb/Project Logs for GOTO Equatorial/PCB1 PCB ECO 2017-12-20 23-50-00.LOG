@@ -1,0 +1,8 @@
+Added Pin To Net: NetName=NETLABEL1 Pin=U2-14
+Added Net: Name=NETLABEL1
+Added Pin To Net: NetName=NETLABEL2 Pin=U2-13
+Added Net: Name=NETLABEL2
+Added Pin To Net: NetName=NETLABEL3 Pin=U2-12
+Added Net: Name=NETLABEL3
+Added Pin To Net: NetName=NETLABEL4 Pin=U2-11
+Added Net: Name=NETLABEL4

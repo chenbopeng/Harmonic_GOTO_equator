@@ -1,0 +1,179 @@
+Removed Pin From Net: NetName=VCC Pin=H1-1
+Removed Pin From Net: NetName=VCC Pin=H1-18
+Removed Pin From Net: NetName=GND Pin=H1-19
+Removed Pin From Net: NetName=GND Pin=H1-20
+Removed Pin From Net: NetName=VCC Pin=U1-1
+Removed Pin From Net: NetName=VCC Pin=U1-18
+Removed Pin From Net: NetName=GND Pin=U1-19
+Removed Pin From Net: NetName=GND Pin=U1-20
+Removed Pin From Net: NetName=GND Pin=U1-39
+Removed Pin From Net: NetName=VCC Pin=U1-40
+Removed Pin From Net: NetName=GND Pin=U2-9
+Removed Pin From Net: NetName=VCC Pin=U2-10
+Removed Pin From Net: NetName=GND Pin=U2-15
+Removed Pin From Net: NetName=GND Pin=U3-9
+Removed Pin From Net: NetName=VCC Pin=U3-10
+Removed Pin From Net: NetName=GND Pin=U3-15
+Removed Member From Class: ClassName=核心板 Member=H1
+Removed Member From Class: ClassName=核心板 Member=H2
+Removed Member From Class: ClassName=核心板 Member=H3
+Removed Member From Class: ClassName=核心板 Member=U1
+Removed Member From Class: ClassName=核心板 Member=U2
+Removed Member From Class: ClassName=核心板 Member=U3
+Change Component Designator: OldDesignator=DC-DC NewDesignator=DC-DC1
+Change Component Designator: OldDesignator=RJ12 NewDesignator=RJ3
+Added Component: Designator=DRIVER1(DIP16)
+Added Component: Designator=DRIVER2(DIP16)
+Added Component: Designator=HEAD1(SIP20)
+Added Component: Designator=MCU1(DIP40)
+Added Component: Designator=RJ1(RJ12)
+Added Component: Designator=RJ2(RJ12)
+Added Pin To Net: NetName=GND Pin=DRIVER1-9
+Added Pin To Net: NetName=VCC Pin=DRIVER1-10
+Added Pin To Net: NetName=GND Pin=DRIVER1-15
+Added Pin To Net: NetName=GND Pin=DRIVER2-9
+Added Pin To Net: NetName=VCC Pin=DRIVER2-10
+Added Pin To Net: NetName=GND Pin=DRIVER2-15
+Added Pin To Net: NetName=VCC Pin=HEAD1-1
+Added Pin To Net: NetName=VCC Pin=HEAD1-18
+Added Pin To Net: NetName=GND Pin=HEAD1-19
+Added Pin To Net: NetName=GND Pin=HEAD1-20
+Added Pin To Net: NetName=VCC Pin=MCU1-1
+Added Pin To Net: NetName=VCC Pin=MCU1-18
+Added Pin To Net: NetName=GND Pin=MCU1-19
+Added Pin To Net: NetName=GND Pin=MCU1-20
+Added Pin To Net: NetName=GND Pin=MCU1-39
+Added Pin To Net: NetName=VCC Pin=MCU1-40
+Added Pin To Net: NetName=NetDC-DC1_2 Pin=DC-DC1-2
+Added Pin To Net: NetName=NetDC-DC1_2 Pin=DRIVER1-16
+Added Net: Name=NetDC-DC1_2
+Added Pin To Net: NetName=NetDRIVER1_1 Pin=DRIVER1-1
+Added Pin To Net: NetName=NetDRIVER1_1 Pin=MCU1-37
+Added Net: Name=NetDRIVER1_1
+Added Pin To Net: NetName=NetDRIVER1_2 Pin=DRIVER1-2
+Added Pin To Net: NetName=NetDRIVER1_2 Pin=MCU1-36
+Added Net: Name=NetDRIVER1_2
+Added Pin To Net: NetName=NetDRIVER1_3 Pin=DRIVER1-3
+Added Pin To Net: NetName=NetDRIVER1_3 Pin=MCU1-35
+Added Net: Name=NetDRIVER1_3
+Added Pin To Net: NetName=NetDRIVER1_4 Pin=DRIVER1-4
+Added Pin To Net: NetName=NetDRIVER1_4 Pin=MCU1-34
+Added Net: Name=NetDRIVER1_4
+Added Pin To Net: NetName=NetDRIVER1_5 Pin=DRIVER1-5
+Added Pin To Net: NetName=NetDRIVER1_5 Pin=MCU1-33
+Added Net: Name=NetDRIVER1_5
+Added Pin To Net: NetName=NetDRIVER1_6 Pin=DRIVER1-6
+Added Pin To Net: NetName=NetDRIVER1_6 Pin=MCU1-32
+Added Net: Name=NetDRIVER1_6
+Added Pin To Net: NetName=NetDRIVER1_7 Pin=DRIVER1-7
+Added Pin To Net: NetName=NetDRIVER1_7 Pin=MCU1-31
+Added Net: Name=NetDRIVER1_7
+Added Pin To Net: NetName=NetDRIVER1_8 Pin=DRIVER1-8
+Added Pin To Net: NetName=NetDRIVER1_8 Pin=MCU1-30
+Added Net: Name=NetDRIVER1_8
+Added Pin To Net: NetName=NetDRIVER1_11 Pin=DRIVER1-11
+Added Pin To Net: NetName=NetDRIVER1_11 Pin=RJ1-4
+Added Net: Name=NetDRIVER1_11
+Added Pin To Net: NetName=NetDRIVER1_12 Pin=DRIVER1-12
+Added Pin To Net: NetName=NetDRIVER1_12 Pin=RJ1-3
+Added Net: Name=NetDRIVER1_12
+Added Pin To Net: NetName=NetDRIVER1_13 Pin=DRIVER1-13
+Added Pin To Net: NetName=NetDRIVER1_13 Pin=RJ1-5
+Added Net: Name=NetDRIVER1_13
+Added Pin To Net: NetName=NetDRIVER1_14 Pin=DRIVER1-14
+Added Pin To Net: NetName=NetDRIVER1_14 Pin=RJ1-2
+Added Net: Name=NetDRIVER1_14
+Added Pin To Net: NetName=NetDRIVER2_1 Pin=DRIVER2-1
+Added Pin To Net: NetName=NetDRIVER2_1 Pin=MCU1-29
+Added Net: Name=NetDRIVER2_1
+Added Pin To Net: NetName=NetDRIVER2_2 Pin=DRIVER2-2
+Added Pin To Net: NetName=NetDRIVER2_2 Pin=MCU1-28
+Added Net: Name=NetDRIVER2_2
+Added Pin To Net: NetName=NetDRIVER2_3 Pin=DRIVER2-3
+Added Pin To Net: NetName=NetDRIVER2_3 Pin=MCU1-27
+Added Net: Name=NetDRIVER2_3
+Added Pin To Net: NetName=NetDRIVER2_4 Pin=DRIVER2-4
+Added Pin To Net: NetName=NetDRIVER2_4 Pin=MCU1-26
+Added Net: Name=NetDRIVER2_4
+Added Pin To Net: NetName=NetDRIVER2_5 Pin=DRIVER2-5
+Added Pin To Net: NetName=NetDRIVER2_5 Pin=MCU1-25
+Added Net: Name=NetDRIVER2_5
+Added Pin To Net: NetName=NetDRIVER2_6 Pin=DRIVER2-6
+Added Pin To Net: NetName=NetDRIVER2_6 Pin=MCU1-24
+Added Net: Name=NetDRIVER2_6
+Added Pin To Net: NetName=NetDRIVER2_7 Pin=DRIVER2-7
+Added Pin To Net: NetName=NetDRIVER2_7 Pin=MCU1-23
+Added Net: Name=NetDRIVER2_7
+Added Pin To Net: NetName=NetDRIVER2_8 Pin=DRIVER2-8
+Added Pin To Net: NetName=NetDRIVER2_8 Pin=MCU1-22
+Added Net: Name=NetDRIVER2_8
+Added Pin To Net: NetName=NetDRIVER2_11 Pin=DRIVER2-11
+Added Pin To Net: NetName=NetDRIVER2_11 Pin=RJ2-4
+Added Net: Name=NetDRIVER2_11
+Added Pin To Net: NetName=NetDRIVER2_12 Pin=DRIVER2-12
+Added Pin To Net: NetName=NetDRIVER2_12 Pin=RJ2-3
+Added Net: Name=NetDRIVER2_12
+Added Pin To Net: NetName=NetDRIVER2_13 Pin=DRIVER2-13
+Added Pin To Net: NetName=NetDRIVER2_13 Pin=RJ2-5
+Added Net: Name=NetDRIVER2_13
+Added Pin To Net: NetName=NetDRIVER2_14 Pin=DRIVER2-14
+Added Pin To Net: NetName=NetDRIVER2_14 Pin=RJ2-2
+Added Net: Name=NetDRIVER2_14
+Added Pin To Net: NetName=NetHEAD1_2 Pin=HEAD1-2
+Added Pin To Net: NetName=NetHEAD1_2 Pin=MCU1-2
+Added Net: Name=NetHEAD1_2
+Added Pin To Net: NetName=NetHEAD1_3 Pin=HEAD1-3
+Added Pin To Net: NetName=NetHEAD1_3 Pin=MCU1-3
+Added Net: Name=NetHEAD1_3
+Added Pin To Net: NetName=NetHEAD1_4 Pin=HEAD1-4
+Added Pin To Net: NetName=NetHEAD1_4 Pin=MCU1-4
+Added Net: Name=NetHEAD1_4
+Added Pin To Net: NetName=NetHEAD1_5 Pin=HEAD1-5
+Added Pin To Net: NetName=NetHEAD1_5 Pin=MCU1-5
+Added Pin To Net: NetName=NetHEAD1_5 Pin=RJ3-4
+Added Net: Name=NetHEAD1_5
+Added Pin To Net: NetName=NetHEAD1_6 Pin=HEAD1-6
+Added Pin To Net: NetName=NetHEAD1_6 Pin=MCU1-6
+Added Pin To Net: NetName=NetHEAD1_6 Pin=RJ3-2
+Added Net: Name=NetHEAD1_6
+Added Pin To Net: NetName=NetHEAD1_7 Pin=HEAD1-7
+Added Pin To Net: NetName=NetHEAD1_7 Pin=MCU1-7
+Added Net: Name=NetHEAD1_7
+Added Pin To Net: NetName=NetHEAD1_8 Pin=HEAD1-8
+Added Pin To Net: NetName=NetHEAD1_8 Pin=MCU1-8
+Added Pin To Net: NetName=NetHEAD1_8 Pin=RJ3-3
+Added Net: Name=NetHEAD1_8
+Added Pin To Net: NetName=NetHEAD1_9 Pin=HEAD1-9
+Added Pin To Net: NetName=NetHEAD1_9 Pin=MCU1-9
+Added Net: Name=NetHEAD1_9
+Added Pin To Net: NetName=NetHEAD1_10 Pin=HEAD1-10
+Added Pin To Net: NetName=NetHEAD1_10 Pin=MCU1-10
+Added Net: Name=NetHEAD1_10
+Added Pin To Net: NetName=NetHEAD1_11 Pin=HEAD1-11
+Added Pin To Net: NetName=NetHEAD1_11 Pin=MCU1-11
+Added Net: Name=NetHEAD1_11
+Added Pin To Net: NetName=NetHEAD1_12 Pin=HEAD1-12
+Added Pin To Net: NetName=NetHEAD1_12 Pin=MCU1-12
+Added Pin To Net: NetName=NetHEAD1_12 Pin=RJ3-5
+Added Net: Name=NetHEAD1_12
+Added Pin To Net: NetName=NetHEAD1_13 Pin=HEAD1-13
+Added Pin To Net: NetName=NetHEAD1_13 Pin=MCU1-13
+Added Net: Name=NetHEAD1_13
+Added Pin To Net: NetName=NetHEAD1_14 Pin=HEAD1-14
+Added Pin To Net: NetName=NetHEAD1_14 Pin=MCU1-14
+Added Net: Name=NetHEAD1_14
+Added Pin To Net: NetName=NetHEAD1_15 Pin=HEAD1-15
+Added Pin To Net: NetName=NetHEAD1_15 Pin=MCU1-15
+Added Net: Name=NetHEAD1_15
+Added Pin To Net: NetName=NetHEAD1_16 Pin=HEAD1-16
+Added Pin To Net: NetName=NetHEAD1_16 Pin=MCU1-16
+Added Net: Name=NetHEAD1_16
+Added Pin To Net: NetName=NetHEAD1_17 Pin=HEAD1-17
+Added Pin To Net: NetName=NetHEAD1_17 Pin=MCU1-17
+Added Net: Name=NetHEAD1_17
+Added Member To Class: ClassName=核心板 Member=Component DRIVER1 TMC2100步进电机驱动
+Added Member To Class: ClassName=核心板 Member=Component DRIVER2 TMC2100步进电机驱动
+Added Member To Class: ClassName=核心板 Member=Component HEAD1 20脚排插
+Added Member To Class: ClassName=核心板 Member=Component MCU1 STM32C8T6最小系统
+Added Member To Class: ClassName=核心板 Member=Component RJ1 RJ12插座
+Added Member To Class: ClassName=核心板 Member=Component RJ2 RJ12插座

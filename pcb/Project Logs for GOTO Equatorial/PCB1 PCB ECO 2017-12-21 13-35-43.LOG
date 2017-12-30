@@ -1,0 +1,12 @@
+Added Pin To Net: NetName=RA-1A Pin=H2-5
+Added Pin To Net: NetName=RA-1A Pin=U2-12
+Added Net: Name=RA-1A
+Added Pin To Net: NetName=RA-1B Pin=H2-2
+Added Pin To Net: NetName=RA-1B Pin=U2-11
+Added Net: Name=RA-1B
+Added Pin To Net: NetName=RA-2A Pin=H2-3
+Added Pin To Net: NetName=RA-2A Pin=U2-13
+Added Net: Name=RA-2A
+Added Pin To Net: NetName=RA-2B Pin=H2-4
+Added Pin To Net: NetName=RA-2B Pin=U2-14
+Added Net: Name=RA-2B

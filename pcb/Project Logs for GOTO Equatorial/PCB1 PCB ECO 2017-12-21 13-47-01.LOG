@@ -1,0 +1,12 @@
+Added Pin To Net: NetName=DEC-1A Pin=H3-3
+Added Pin To Net: NetName=DEC-1A Pin=U3-12
+Added Net: Name=DEC-1A
+Added Pin To Net: NetName=DEC-1B Pin=H3-4
+Added Pin To Net: NetName=DEC-1B Pin=U3-11
+Added Net: Name=DEC-1B
+Added Pin To Net: NetName=DEC-2A Pin=H3-5
+Added Pin To Net: NetName=DEC-2A Pin=U3-13
+Added Net: Name=DEC-2A
+Added Pin To Net: NetName=DEC-2B Pin=H3-2
+Added Pin To Net: NetName=DEC-2B Pin=U3-14
+Added Net: Name=DEC-2B
