@@ -1,4 +1,0 @@
-Added Component: Designator=U2(DIP16)
-Added Component: Designator=U3(DIP16)
-Added Member To Class: ClassName=核心板 Member=Component U2 TMC2100步进电机驱动
-Added Member To Class: ClassName=核心板 Member=Component U3 TMC2100步进电机驱动
