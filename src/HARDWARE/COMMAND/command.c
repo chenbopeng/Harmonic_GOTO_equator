@@ -8,16 +8,13 @@
 //输入参数：buffer 报文字段输入
 //          current_pos[2] 当前坐标（角秒）,用于向上位机汇报
 //          target_pos[2] 目标坐标（角秒），作为输出使用，供上级程序调用
-//返回值：返回解析状态，0解析失败，1解析成功且已进行反馈，2成功解析并返回目标RA值，3成功解析并返回目标DEC值，
+//返回值：返回解析状态，0解析失败，1解析成功且已进行反馈，3成功解析并返回目标RA值，4成功解析并返回目标DEC值，
 //        'e'向东按键，'E'向东按键停止，'w'向西按键，'W'向西按键停止，'s'向南按键，'S'向南按键停止，'n'向北按键，'N'向北按键停止
 u8 LX200( u8 *buffer, s32 *current_pos, s32 *target_pos )
 {
     u8 command[20], target_data[10];
     static u8 send_data[10];
     u8 i=0, a=0;
-    static u8 decoding_state=0;
-
-    if(decoding_state == 0xff)decoding_state = 0;
 
     while ( buffer[i] != ':' ) //找头，如果找头失败就直接返回
     {

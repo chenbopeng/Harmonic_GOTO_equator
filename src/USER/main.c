@@ -33,7 +33,7 @@ int main(void)
         if(data_receive_buffer[USART_REC_LEN - 1] == 1)  //DMA收到消息标志
         {
             data_receive_buffer[USART_REC_LEN - 1] = 0; //清理标志
-            decode_state = LX200( data_receive_buffer, current_pos, target_pos );
+            decode_state = LX200( data_receive_buffer, current_pos, target_pos ); //LX200协议解析
             REMOTE_KEY_CONTROL(remote_key_state,decode_state); //无线按键控制解码
             if(GOTO_CHECK(decode_state) == 0xff) //目标位置齐备
             {
