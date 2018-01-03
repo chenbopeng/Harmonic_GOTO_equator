@@ -352,4 +352,28 @@ void REMOTE_KEY_CONTROL ( s8 *remote_key_state,  u8 decode_state )
     }
 }
 
+void SHUTTER_CONTROL( u8 *buffer, u16 *shutter )
+{
+	char temp[5]={0};
+	u8 i=0 , j=0; 
+	if( buffer[0]=='T' && buffer[1]=='p') //协议找头
+	{
+		while(buffer[i+2]!=' ')  //第一组数据转存
+		{
+			temp[i]=buffer[i+2];
+			i++;
+		}
+		shutter[0]  = atof(temp); //转为u16
+		
+		memset(temp, 0, 5); //清空数据
+		i++;
+		while(buffer[i+2]!=0)  //第二组数据转存
+		{
+			temp[j]=buffer[i+2];
+			i++;
+			j++;
+		}
+		shutter[1] = atof(temp);
+	}
+}
 

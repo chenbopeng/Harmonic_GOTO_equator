@@ -15,5 +15,6 @@ void RA_ARCSEC_INTO_DEG(s32 current_ra,u8 *raout);
 void DEC_ARCSEC_INTO_DEG ( s32 current_dec, u8 *dec_out );
 u8 GOTO_CHECK( u8 decode_state);
 void REMOTE_KEY_CONTROL ( s8 *remote_key_state ,  u8 decode_state );
+void SHUTTER_CONTROL( u8 *buffer, u16 *shutter );
 
 #endif /* __COMMAND_H */
