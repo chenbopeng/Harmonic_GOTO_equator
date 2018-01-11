@@ -374,6 +374,7 @@ void SHUTTER_CONTROL( u8 *buffer, u16 *shutter )
 			j++;
 		}
 		shutter[1] = atof(temp);
+		memset(buffer, 0, 20); //Çå¿ÕÊý¾Ý
 	}
 }
 
