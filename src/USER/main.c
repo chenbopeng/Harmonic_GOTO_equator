@@ -91,10 +91,12 @@ int main(void)
 					if(sec_counter==5&&shutter[0]!=0) //延时5秒后，B门拍照
 					{
 						PCout(13)=0;
+						PBout(12)=0;
 					}
 					if(sec_counter>=(shutter[0]+5))  //到时停止B门
 					{
 						PCout(13)=1;
+						PBout(12)=1;
 						shutter[1]--;
 						sec_counter=0;
 					}
