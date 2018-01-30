@@ -135,6 +135,9 @@ void HANDLE_CONTROL(u16 speed, u8 *dir_state, s8 *key_statue) //按指定的速度、基
 	  ra_stp_count++;
     dec_stp_count++;
 	
+		if(key_statue[0]==0&&key_statue[1]==0){SW_LED=0;}  //按键指示灯
+		else {SW_LED=1;}
+	
     switch (key_statue[0])//RA运动计算
     {
 			case 0:  //RA正常跟踪
