@@ -17,14 +17,16 @@ void EQ3D_GPIO_OUT_Config(void)
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
     GPIO_Init(GPIOB, &GPIO_InitStructure);
-	
-	  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_13 ;
+
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_13 ;
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
     GPIO_Init(GPIOC, &GPIO_InitStructure);
-	
-		PCout(13)=1;
-		PBout(12)=1;
+
+    PCout(13)=1;  //相机快门指示灯
+    PBout(12)=1;  //相机快门控制引脚
+    RA_EN = STEPPER_MOTOR_STAR;
+    DEC_EN = STEPPER_MOTOR_STAR;
 }
 
 void EQ3D_GPIO_KEY_Config(void)
@@ -127,59 +129,65 @@ void EQ3D_STEP(u8 stp_ra, u8 stp_dec)  //向步进电机驱动器按需发送脉冲
 
 void HANDLE_CONTROL(u16 speed, u8 *dir_state, s8 *key_statue) //按指定的速度、基准方向、方向执行手控器按键的动作，以及正常速度跟踪
 {
-		u16 temp;
-		static u16 ra_stp_count = 1, dec_stp_count = 1;
-		u32 ra_overflows, dec_overflows;
+    u16 temp;
+    static u16 ra_stp_count = 1, dec_stp_count = 1;
+    u32 ra_overflows, dec_overflows;
     u8 ra_stp_flag = 0, dec_stp_flag = 0;
-	
-	  ra_stp_count++;
+
+    ra_stp_count++;
     dec_stp_count++;
-	
-		if(key_statue[0]==0&&key_statue[1]==0){SW_LED=0;}  //按键指示灯
-		else {SW_LED=1;}
-	
+
+    if(key_statue[0]==0&&key_statue[1]==0)
+    {
+        SW_LED=0;   //按键指示灯
+    }
+    else
+    {
+        SW_LED=1;
+    }
+
     switch (key_statue[0])//RA运动计算
     {
-			case 0:  //RA正常跟踪
-				RA_DIR = !dir_state[0];
-				RA_EN = STEPPER_MOTOR_STAR;
-				ra_overflows = NORM_STP_COUNT;
-				break;
-			case -1:  //RA+  S+1倍速
-				RA_DIR = !dir_state[0];
-				RA_EN = STEPPER_MOTOR_STAR;
-				ra_overflows = NORM_STP_COUNT/(speed+1);
-				break;
-			case 1:  //RA-  S-1倍速
-				RA_DIR = dir_state[0];
-				RA_EN = STEPPER_MOTOR_STAR;
-				temp=speed-1;
-				if(temp==0){ra_overflows=0xfffff;} //当2倍速时，使得计数无法达到溢出值，以此使RA轴停转
-				else {ra_overflows = NORM_STP_COUNT/(speed-1);}
-				break;
-			default:
-				break;
+    case 0:  //RA正常跟踪
+        RA_DIR = !dir_state[0];
+        ra_overflows = NORM_STP_COUNT;
+        break;
+    case -1:  //RA+  S+1倍速
+        RA_DIR = !dir_state[0];
+        ra_overflows = NORM_STP_COUNT/(speed+1);
+        break;
+    case 1:  //RA-  S-1倍速
+        RA_DIR = dir_state[0];
+        temp=speed-1;
+        if(temp==0)
+        {
+            ra_overflows=0xfffff;   //当2倍速时，使得计数无法达到溢出值，以此使RA轴停转
+        }
+        else
+        {
+            ra_overflows = NORM_STP_COUNT/(speed-1);
+        }
+        break;
+    default:
+        break;
     }
-		switch (key_statue[1])//DEC运动计算
+    switch (key_statue[1])//DEC运动计算
     {
-			case 0:  //DEC停转
-				DEC_EN = !STEPPER_MOTOR_STAR;
+    case 0:  //DEC停转
         dec_overflows = NORM_STP_COUNT;
         dec_stp_count=0;	//不加这句则无法正常起转，原因待查
-				break;
-			case 1:  //DEC+
-				DEC_DIR = dir_state[1];
-				DEC_EN = STEPPER_MOTOR_STAR;
-				dec_overflows = NORM_STP_COUNT/speed;
-				break;
-			case -1:  //DEC-
-				DEC_DIR = !dir_state[1];
-				DEC_EN = STEPPER_MOTOR_STAR;
-				dec_overflows = NORM_STP_COUNT/speed;
-				break;
-			default:
-				break;
-		}
+        break;
+    case 1:  //DEC+
+        DEC_DIR = dir_state[1];
+        dec_overflows = NORM_STP_COUNT/speed;
+        break;
+    case -1:  //DEC-
+        DEC_DIR = !dir_state[1];
+        dec_overflows = NORM_STP_COUNT/speed;
+        break;
+    default:
+        break;
+    }
     if(ra_stp_count > ra_overflows)
     {
         ra_stp_count = 1;
@@ -206,7 +214,7 @@ void HANDLE_CONTROL(u16 speed, u8 *dir_state, s8 *key_statue) //按指定的速度、基
 }
 
 
-void GOTO ( int *ra_step, int *dec_step , u8 *dir_state)  //按计算结果移动步进电机
+void GOTO ( int *ra_step, int *dec_step, u8 *dir_state)   //按计算结果移动步进电机
 {
     static u16 ra_stp_count = 1, dec_stp_count = 1;
     u16 ra_overflows, dec_overflows;
@@ -215,7 +223,6 @@ void GOTO ( int *ra_step, int *dec_step , u8 *dir_state)  //按计算结果移动步进电
     ra_stp_count++;
     dec_stp_count++;
 
-    RA_EN = 0;
     if((*ra_step) == 0 )	//到位了就切换到RA正常速度跟踪
     {
         RA_DIR = !dir_state[0];
@@ -234,18 +241,17 @@ void GOTO ( int *ra_step, int *dec_step , u8 *dir_state)  //按计算结果移动步进电
 
     if((*dec_step) == 0)		//到位了DEC轴停转
     {
-        DEC_EN = 1;
+        dec_overflows = GOTO_STP_COUNT;
+        dec_stp_count=0;
     }
     else if( (*dec_step) > 0 )		//如果步进没到位就步进
     {
         DEC_DIR = dir_state[1];
-        DEC_EN = 0;
         dec_overflows = GOTO_STP_COUNT;
     }
     else		//如果步进没到位就步进
     {
         DEC_DIR = !dir_state[1];
-        DEC_EN = 0;
         dec_overflows = GOTO_STP_COUNT;
     }
 
@@ -292,106 +298,118 @@ void GOTO ( int *ra_step, int *dec_step , u8 *dir_state)  //按计算结果移动步进电
 
 void LOCAL_KEY_CONTROL ( s8 *key_statue ) //手控器上方向按键信号采集
 {
-	if(RA_PLUS==0)
-		{key_statue[0]=-1;}
-	if(RA_SUB==0)
-		{key_statue[0]=1;}
-	if(RA_PLUS == 1 && RA_SUB == 1)
-		{key_statue[0]=0;}
-	
-	if(DEC_PLUS==0)
-		{key_statue[1]=1;}
-	if(DEC_SUB==0)
-		{key_statue[1]=-1;}
-	if(DEC_PLUS == 1 && DEC_SUB == 1)
-		{key_statue[1]=0;}
+    if(RA_PLUS==0)
+    {
+        key_statue[0]=-1;
+    }
+    if(RA_SUB==0)
+    {
+        key_statue[0]=1;
+    }
+    if(RA_PLUS == 1 && RA_SUB == 1)
+    {
+        key_statue[0]=0;
+    }
+
+    if(DEC_PLUS==0)
+    {
+        key_statue[1]=1;
+    }
+    if(DEC_SUB==0)
+    {
+        key_statue[1]=-1;
+    }
+    if(DEC_PLUS == 1 && DEC_SUB == 1)
+    {
+        key_statue[1]=0;
+    }
 }
 
 void KEY_CONTROL_MIX(s8 *remote_key_state,s8 *local_key_state,s8 *key_state)  //手控器的按键及无线按键控制信号融合
 {
-	key_state[0]=remote_key_state[0]+local_key_state[0];
-	key_state[1]=remote_key_state[1]+local_key_state[1];
+    key_state[0]=remote_key_state[0]+local_key_state[0];
+    key_state[1]=remote_key_state[1]+local_key_state[1];
 }
 
 u16 SPEED_CONTROL()  //速度切换按钮对速度的控制
 {
-	static int counter;
-	static u8 temp=1;
+    static int counter;
+    static u8 temp=1;
     if(SPEED_KEY==0)  //速度切换
     {
         counter++;
         if(counter==2000)
         {
-					temp++;
-					if(temp>=5)
-					{
-						temp=1;
-					}
+            temp++;
+            if(temp>=5)
+            {
+                temp=1;
+            }
         }
     }
     else counter=0;
-		switch (temp)
-		{
-			case 1:
-				SPEED_LED=0; 
-				return GUIDE_SPEED;
-			case 2:
-				SPEED_LED=0; 
-				return LOW_SPEED;
-			case 3:
-				SPEED_LED=1; 
-				return MEDIUM_SPEED;
-			case 4:
-				SPEED_LED=1; 
-				return HIGH_SPEED;
-			default:
-				return GUIDE_SPEED;
-		}
+    switch (temp)
+    {
+    case 1:
+        SPEED_LED=0;
+        return GUIDE_SPEED;
+    case 2:
+        SPEED_LED=0;
+        return LOW_SPEED;
+    case 3:
+        SPEED_LED=1;
+        return MEDIUM_SPEED;
+    case 4:
+        SPEED_LED=1;
+        return HIGH_SPEED;
+    default:
+        return GUIDE_SPEED;
+    }
 }
 
 void DIR_CONTROL(u8 *dir_state)  //方向切换按钮对基准方向的控制
 {
-	static int counter;
-	static u8 temp=1;
+    static int counter;
+    static u8 temp=1;
     if(DIR_KEY==0)  //速度切换
     {
         counter++;
         if(counter==2000)
         {
-					temp++;
-					if(temp>=5)
-					{
-						temp=1;
-					}
+            temp++;
+            if(temp>=5)
+            {
+                temp=1;
+            }
         }
     }
-		else counter=0;
-		switch (temp)
-		{
-			case 1:
-				DIR_LED=0;
-				dir_state[0]=RA_DIR_SET;
-				dir_state[1]=DEC_DIR_SET;
-				break;
-			case 2:
-				DIR_LED=0; 
-				dir_state[0]=RA_DIR_SET;
-				dir_state[1]=!DEC_DIR_SET;
-				break;
-			case 3:
-				DIR_LED=1; 
-				dir_state[0]=!RA_DIR_SET;
-				dir_state[1]=DEC_DIR_SET;
-				break;
-			case 4:
-				DIR_LED=1; 
-				dir_state[0]=!RA_DIR_SET;
-				dir_state[1]=!DEC_DIR_SET;
-				break;
-			default:
-				dir_state[0]=RA_DIR_SET;
-				dir_state[1]=DEC_DIR_SET;
-		}
+    else counter=0;
+    switch (temp)
+    {
+    case 1:
+        DIR_LED=0;
+        dir_state[0]=RA_DIR_SET;
+        dir_state[1]=DEC_DIR_SET;
+        break;
+    case 2:
+        DIR_LED=0;
+        dir_state[0]=RA_DIR_SET;
+        dir_state[1]=!DEC_DIR_SET;
+        break;
+    case 3:
+        DIR_LED=1;
+        dir_state[0]=!RA_DIR_SET;
+        dir_state[1]=DEC_DIR_SET;
+        break;
+    case 4:
+        DIR_LED=1;
+        dir_state[0]=!RA_DIR_SET;
+        dir_state[1]=!DEC_DIR_SET;
+        break;
+    default:
+        dir_state[0]=RA_DIR_SET;
+        dir_state[1]=DEC_DIR_SET;
+    }
 }
 
 
