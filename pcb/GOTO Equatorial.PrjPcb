@@ -140,14 +140,6 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=KREFNUAO
 
-[GeneratedDocument1]
-DocumentPath=Project Outputs for GOTO Equatorial\Design Rule Check - ºËÐÄ°å.html
-DItemRevisionGUID=
-
-[GeneratedDocument2]
-DocumentPath=Project Outputs for GOTO Equatorial\GOTO Equatorial.nsx
-DItemRevisionGUID=
-
 [Configuration1]
 Name=Default Configuration
 ParameterCount=0
