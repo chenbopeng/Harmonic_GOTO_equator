@@ -148,6 +148,22 @@ u8 LX200( u8 *buffer, s32 *current_pos, s32 *target_pos )
             return 'n';
         }
     }
+		
+		if ( command[1] == 'F' ) //采用DEC轴控制调焦座，:F-# :F+# :FQ# 为调焦指令
+		{
+			if ( command[2] == '-' )
+			{
+				return 's';
+			}
+			if ( command[2] == '+')
+			{
+				return 'n';
+			}
+			if ( command[2] == 'Q')
+			{
+				return 'N';  //因为回复N和S都是停止命令，所以这里随便采用一个就可以
+			}
+		}
     return 0;
 
 }
